@@ -1,0 +1,52 @@
+<div class='d-flex justify-content-between mb-4'>
+    <h2>{{Titulo}}</h2>
+    <button routerLink="/users" class='btn btn-success mx-4'>
+        Volver
+    </button>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class='row'>
+        <div class="mb-3 col-md-4">
+            <label for="document">Documento</label>
+            <input formControlName="documento" type="number" id='document' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="name">Nombres</label>
+            <input formControlName="nombres" id='name' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="lastName">Apellidos</label>
+            <input formControlName="apellidos" id='lastName' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="date">Fecha de nacimiento</label>
+            <input formControlName="fecha_nacimiento" type='date' id='date' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="email">Email</label>
+            <input formControlName="email" type='email' id='email' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="area">Area</label>
+            <select formControlName="area" class="form-select" id="area" required>
+                <option value=''>Seleccione una opción...</option>
+                <option *ngFor="let area of areas" value={{area.codigo}}>{{area.nombre}}</option>
+            </select>
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="salary">Salario</label>
+            <input formControlName="salario" type='number' id='salary' class="form-control" required />
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="state">Area</label>
+            <select formControlName="estado" class="form-select" id="state" required>
+                <option value=''>Seleccione una opción...</option>
+                <option *ngFor="let state of states" value={{state.id}}>{{state.estado}}</option>
+            </select>
+        </div>
+        <div class="mb-3 col-md-12">
+            <button [disabled]="!userForm.valid" class="btn btn-success" type="submit">Actualizar</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+<div class='d-flex justify-content-between mb-4'>
+    <h2>{{Titulo}}</h2>
+    <button routerLink="/users/create" class='btn btn-success mx-4'>
+        Agregar
+    </button>
+</div>
+<div class='table-responsive'>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">N° Documento</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Fecha de nacimiento</th>
+                <th scope="col">Email</th>
+                <th scope="col">Área</th>
+                <th scope="col">Salario</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+            <tr>
+                <th scope="row">{{user.documento}}</th>
+                <td>{{user.nombres}}</td>
+                <td>{{user.apellidos}}</td>
+                <td>{{user.fecha_nacimiento}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.nom_area}}</td>
+                <td>{{user.salario}}</td>
+                <td>{{user.desc_estado}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning mx-1" (click)="onClickEdit(user.idusuarios)">Editar</button>
+                    <button class="btn btn-danger mx-1" (click)="onClickDelete(user.idusuarios)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
